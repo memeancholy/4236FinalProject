@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
 
     Animator m_animator;
 
-    public AudioSource soundEmitted;
+    private AudioSource soundEmitted;
 
     // Use this for initialization 
     private void Start()
@@ -28,6 +28,8 @@ public class Gun : MonoBehaviour
         m_animator = GetComponent<Animator>();
 
         currentAmmo = maxAmmo;
+
+        soundEmitted = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,13 +46,13 @@ public class Gun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && isShooting == false && currentAmmo > 0)
         {          
-            StartCoroutine(Shoot()); 
+            StartCoroutine(Shoot());
+            isShooting = true;
         } 
     }
 
     IEnumerator Shoot()
     {
-        isShooting = true;
         muzzleFlash.Play();
         m_animator.SetTrigger("Shoot");
         soundEmitted.Play();

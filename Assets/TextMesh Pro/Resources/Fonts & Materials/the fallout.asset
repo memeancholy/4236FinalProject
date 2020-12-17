@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: the fallout
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.07500005, g: 1, b: 0, a: 1}
-  topRight: {r: 0.30936277, g: 0.8301887, b: 0.3604632, a: 1}
-  bottomLeft: {r: 0.055730835, g: 0.33962262, b: 0, a: 1}
-  bottomRight: {r: 0.4252347, g: 0.6320754, b: 0.30113026, a: 1}
+  topLeft: {r: 0.15415402, g: 0.8207547, b: 0, a: 1}
+  topRight: {r: 0.11273074, g: 1, b: 0, a: 1}
+  bottomLeft: {r: 0.13590054, g: 0.6037736, b: 0, a: 1}
+  bottomRight: {r: 0.054993585, g: 0.4245283, b: 0, a: 1}
