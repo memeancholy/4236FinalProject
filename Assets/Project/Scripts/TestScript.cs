@@ -34,6 +34,9 @@ public class TestScript : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
     public float damageTaken = 10f;
+    public static bool GameOver = false;
+    public GameObject overMenuUI = null;
+    public GameObject mouseLook;
 
     private Camera m_Camera;
     private bool m_Jump;
@@ -241,7 +244,24 @@ public class TestScript : MonoBehaviour
             other.gameObject.GetComponent<HealthBar>();
             currentHealth -= damageTaken;
             healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                OverMenu();
+            }
             Debug.Log("Stabbed!");
         }
+    }
+
+    private void OverMenu()
+    {
+        overMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameOver = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        mouseLook.GetComponent<TestScript>().enabled = false;
+        AudioListener.volume = 0;
+        Debug.Log("Death!");
     }
 }
