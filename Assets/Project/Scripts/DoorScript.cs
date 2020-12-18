@@ -20,6 +20,7 @@ public class DoorScript : MonoBehaviour
         if(other.tag == "Player")
         {
             PopUp.SetActive(true);
+            Debug.Log("Open the door!");
         }
 
         if(other.tag == "Enemy")

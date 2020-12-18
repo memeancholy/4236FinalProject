@@ -60,6 +60,12 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+
+            GetShot target = hit.transform.GetComponent<GetShot>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
         }   
         yield return new WaitForSecondsRealtime(shootTime);
         isShooting = false;
