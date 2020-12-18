@@ -34,7 +34,7 @@ public class PauseMenu4236 : MonoBehaviour
         GamePaused = false;       
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        mouseLook.GetComponent<FirstPersonController>().enabled = true;
+        mouseLook.GetComponent<TestScript>().enabled = true;
         AudioListener.volume = 1;
     }
 
@@ -45,7 +45,7 @@ public class PauseMenu4236 : MonoBehaviour
         GamePaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        mouseLook.GetComponent<FirstPersonController>().enabled = false;
+        mouseLook.GetComponent<TestScript>().enabled = false;
         AudioListener.volume = 0;
     }
 
