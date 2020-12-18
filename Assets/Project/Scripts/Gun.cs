@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     // Use this for initialization 
     private void Start()
     {
+        // Get animator component for pistol, set max ammo and ability to make audio
         m_animator = GetComponent<Animator>();
 
         currentAmmo = maxAmmo;
@@ -38,12 +39,14 @@ public class Gun : MonoBehaviour
         if (isReloading) return;
         if (isShooting) return;
 
+        // Starts reloading process
         if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
         }
 
+        // Shoots the pistol
         if (Input.GetMouseButtonDown(0) && isShooting == false && currentAmmo > 0)
         {          
             StartCoroutine(Shoot());
@@ -58,15 +61,19 @@ public class Gun : MonoBehaviour
         soundEmitted.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-        {
+        {   
+            // Prints to the console what has been hit by the raycast
             Debug.Log(hit.transform.name);
 
+            // If the raycast hits an enemy, it will take damage
             GetShot target = hit.transform.GetComponent<GetShot>();
             if (target != null)
             {
                 target.TakeDamage(damage);
             }
         }   
+
+        // Delay between shots, and subtracting the ammo count
         yield return new WaitForSecondsRealtime(shootTime);
         isShooting = false;
         currentAmmo--;       
@@ -74,6 +81,7 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reload()
     {
+        // Plays the reloading animation and reloads the gun while making sure the gun cannot fire while reloading
         isReloading = true;
         m_animator.SetTrigger("Reload");
 

@@ -6,15 +6,16 @@ public class DoorScript : MonoBehaviour
 {
 
     private Animator doorAnimator;
-
     public GameObject PopUp = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Gets animator component used to open/close the door
         doorAnimator = transform.Find("TheDoor").GetComponent<Animator>();
     }
 
+    // Enables the pop-up to open the door
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -30,6 +31,7 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    // Disables the pop-up to open the door, and closes the door
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -45,6 +47,7 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+    // Checks if the pop-up is active
     private bool IsPopUpActive
     {
         get
@@ -58,6 +61,7 @@ public class DoorScript : MonoBehaviour
     {
         if(IsPopUpActive)
         {
+            // If 'E' is pressed, the door will open
             if(Input.GetKeyDown(KeyCode.E))
             {
                 PopUp.SetActive(false);

@@ -11,6 +11,7 @@ public class EndingScript : MonoBehaviour
     public GameObject endMenuUI;
     public GameObject mouseLook;
 
+    // Stops gameplay and brings up the end menu when the player enters the collider
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -22,6 +23,7 @@ public class EndingScript : MonoBehaviour
 
     public void EndMenu()
     {
+        // Freezes gameplay, locks the camera and allows the mouse to click different options
         endMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameEnded = true;
@@ -31,6 +33,7 @@ public class EndingScript : MonoBehaviour
         AudioListener.volume = 0;
     }
 
+    // Returns to the main menu
     public void MainMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

@@ -10,6 +10,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 #pragma warning disable 618, 649
 
+// Unity-provided FPS controller
 public class TestScript : MonoBehaviour
 {
     [SerializeField] private bool m_IsWalking;
