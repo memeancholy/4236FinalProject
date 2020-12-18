@@ -10,3 +10,7 @@ Known Issues:
 -Player will be paused on the first frame of a game if they quit an old one, go back to the main menu, and start a new game.
 
 -Some lighting in the shelter is weird. Don't know what to do about it.
+
+-The door is finicky.
+
+-The captive AIs may crowd players into a corner if they are not careful.
